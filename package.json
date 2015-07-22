@@ -1,0 +1,27 @@
+{
+  "name": "falcor-json-graph",
+  "version": "1.0.0",
+  "description": "A set of factory functions for creating JSON Graph values.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Netflix/falcor-json-graph.git"
+  },
+  "keywords": [
+    "falcor",
+    "JSON",
+    "Graph"
+  ],
+  "author": "Jafar Husain <jhusain@gmail.com>",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/Netflix/falcor-json-graph/issues"
+  },
+  "homepage": "https://github.com/Netflix/falcor-json-graph",
+  "dependencies": {
+    "falcor-path-syntax": "git+ssh://git@github.com/Netflix/falcor-path-syntax.git"
+  }
+}
