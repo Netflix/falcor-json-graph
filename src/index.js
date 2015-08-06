@@ -28,5 +28,8 @@ module.exports = {
     },
     pathValue: function pathValue(path, value) {
         return { path: pathSyntax.fromPath(path), value: value };
-    }
+    },
+    pathInvalidation: function pathValue(path) {
+        return { path: pathSyntax.fromPath(path), invalidated: true };
+    }    
 };
