@@ -23,13 +23,16 @@ module.exports = {
     atom: function atom(value, props) {
         return sentinel("atom", value, props);        
     },
+    undefined: function() {
+        return sentinel("atom");
+    },    
     error: function error(errorValue, props) {
         return sentinel("error", errorValue, props);        
     },
     pathValue: function pathValue(path, value) {
         return { path: pathSyntax.fromPath(path), value: value };
     },
-    pathInvalidation: function pathValue(path) {
+    pathInvalidation: function pathInvalidation(path) {
         return { path: pathSyntax.fromPath(path), invalidated: true };
     }    
 };
