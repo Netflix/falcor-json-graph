@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/Netflix/falcor-json-graph",
   "dependencies": {
-    "falcor-path-syntax": "git+ssh://git@github.com/Netflix/falcor-path-syntax.git"
+    "falcor-path-syntax": "0.2.1"
   }
 }
