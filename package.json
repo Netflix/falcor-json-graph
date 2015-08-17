@@ -10,16 +10,17 @@
     "type": "git",
     "url": "https://github.com/Netflix/falcor-json-graph.git"
   },
-  "keywords": [
-    "falcor",
-    "JSON",
-    "Graph"
-  ],
   "author": "Jafar Husain <jhusain@gmail.com>",
   "license": "Apache 2.0",
   "bugs": {
     "url": "https://github.com/Netflix/falcor-json-graph/issues"
   },
+  "keywords": [
+    "falcorjs",
+    "Observable",
+    "JSON",
+    "JSON Graph"
+  ],
   "homepage": "https://github.com/Netflix/falcor-json-graph",
   "dependencies": {
     "falcor-path-syntax": "0.2.1"
