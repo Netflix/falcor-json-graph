@@ -20,6 +20,12 @@
   "bugs": {
     "url": "https://github.com/Netflix/falcor-json-graph/issues"
   },
+  keywords: [
+    "falcorjs",
+    "Observable",
+    "JSON",
+    "JSON Graph"
+  ],
   "homepage": "https://github.com/Netflix/falcor-json-graph",
   "dependencies": {
     "falcor-path-syntax": "0.2.1"
