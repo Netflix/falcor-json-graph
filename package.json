@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/Netflix/falcor-json-graph/issues"
   },
-  keywords: [
+  "keywords": [
     "falcorjs",
     "Observable",
     "JSON",
