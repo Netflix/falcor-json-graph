@@ -10,11 +10,6 @@
     "type": "git",
     "url": "https://github.com/Netflix/falcor-json-graph.git"
   },
-  "keywords": [
-    "falcor",
-    "JSON",
-    "Graph"
-  ],
   "author": "Jafar Husain <jhusain@gmail.com>",
   "license": "Apache 2.0",
   "bugs": {
