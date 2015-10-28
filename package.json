@@ -1,6 +1,6 @@
 {
   "name": "falcor-json-graph",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "A set of factory functions for creating JSON Graph values.",
   "main": "src/index.js",
   "scripts": {
@@ -23,6 +23,6 @@
   ],
   "homepage": "https://github.com/Netflix/falcor-json-graph",
   "dependencies": {
-    "falcor-path-syntax": "0.2.1"
+    "falcor-path-syntax": "0.2.3"
   }
 }
