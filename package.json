@@ -22,5 +22,7 @@
     "JSON Graph"
   ],
   "homepage": "https://github.com/Netflix/falcor-json-graph",
-  "dependencies": { }
+  "dependencies": {
+    "falcor-path-syntax": "netflix/falcor-path-syntax"
+  }
 }

@@ -1,3 +1,5 @@
+var fromPath = require('falcor-path-syntax').fromPath;
+
 function sentinel(type, value, props) {
     var copy = Object.create(null);
     if (props != null) {
@@ -16,7 +18,7 @@ function sentinel(type, value, props) {
 
 module.exports = {
     ref: function ref(path, props) {
-        return sentinel("ref", path, props);
+        return sentinel("ref", fromPath(path), props);
     },
     atom: function atom(value, props) {
         return sentinel("atom", value, props);
@@ -28,9 +30,9 @@ module.exports = {
         return sentinel("error", errorValue, props);
     },
     pathValue: function pathValue(path, value) {
-        return { path: path, value: value };
+        return { path: fromPath(path), value: value };
     },
     pathInvalidation: function pathInvalidation(path) {
-        return { path: path, invalidated: true };
+        return { path: fromPath(path), invalidated: true };
     }
 };
