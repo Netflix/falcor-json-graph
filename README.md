@@ -17,8 +17,8 @@ var ref = jsonGraph.ref("todos[0].name");
 var error = jsonGraph.error("something bad happened.");
 
 // { path: [ 'user', 'age' ], value: 25 }
-var pathValue = jsonGraph.pathValue(["user", "age"], 25);
+var pathValue = jsonGraph.pathValue("user.age", 25);
 
 // { path: [ 'user', 'age' ], invalidated: true }
-var pathValue = jsonGraph.pathInvalidation(["user", "age"])
+var pathValue = jsonGraph.pathInvalidation("user.age")
 ```
