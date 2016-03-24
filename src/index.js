@@ -15,6 +15,7 @@ function sentinel(type, value, props) {
 }
 
 module.exports = {
+    sentinel: sentinel,
     ref: function ref(path, props) {
         return sentinel("ref", path, props);
     },
@@ -26,6 +27,9 @@ module.exports = {
     },
     error: function error(errorValue, props) {
         return sentinel("error", errorValue, props);
+    },
+    refset: function refset(path, props) {
+        return sentinel("refset", path, props);
     },
     pathValue: function pathValue(path, value) {
         return { path: path, value: value };
