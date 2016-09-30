@@ -1,17 +1,9 @@
 function sentinel(type, value, props) {
-    var copy = Object.create(null);
-    if (props != null) {
-        for(var key in props) {
-            copy[key] = props[key];
-        }
-
-        copy["$type"] = type;
-        copy.value = value;
-        return copy;
+    var copy = { $type: type, value: value };
+    for(var key in props) {
+        copy[key] = props[key];
     }
-    else {
-        return { $type: type, value: value };
-    }
+    return copy;
 }
 
 module.exports = {
