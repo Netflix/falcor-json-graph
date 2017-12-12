@@ -2,9 +2,16 @@
   "name": "falcor-json-graph",
   "version": "2.0.0",
   "description": "A set of factory functions for creating JSON Graph values.",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "flow": "flow",
+    "flow-coverage": "flow-coverage-report",
+    "lint": "eslint src/ test/",
+    "prepare": "test -e lib && rm -r lib; flow-remove-types --out-dir lib/ src/ && (cd src/; find * -type f -name '*.js' -exec cp {} ../lib/{}.flow \\;)",
+    "prettier": "prettier --write src/**.js test/**.js",
+    "check-formatting": "prettier --list-different src/**.js test/**.js",
+    "test": "mocha -r flow-remove-types/register",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -22,5 +29,21 @@
     "JSON Graph"
   ],
   "homepage": "https://github.com/Netflix/falcor-json-graph",
-  "dependencies": { }
+  "dependencies": {},
+  "devDependencies": {
+    "@lrowe/eslint-plugin-flow-remove-types": "^0.0.1",
+    "chai": "^4.1.2",
+    "eslint": "^4.12.1",
+    "flow-bin": "^0.60.1",
+    "flow-coverage-report": "^0.4.0",
+    "flow-remove-types": "^1.2.3",
+    "mocha": "^4.0.1",
+    "prettier": "^1.9.1",
+    "standard-version": "^4.2.0"
+  },
+  "flow-coverage-report": {
+    "includeGlob": [
+      "src/**/*.js"
+    ]
+  }
 }
