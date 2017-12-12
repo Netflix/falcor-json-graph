@@ -1,6 +1,6 @@
 {
   "name": "falcor-json-graph",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A set of factory functions for creating JSON Graph values.",
   "main": "lib/index.js",
   "scripts": {
