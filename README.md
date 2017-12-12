@@ -10,6 +10,9 @@ var jsonGraph = require('falcor-json-graph');
 // { $type: "atom", value: "a string wrapped in an atom" }
 var atom = jsonGraph.atom("a string wrapped in an atom");
 
+// { $type: "atom" }
+var undefinedAtom = jsonGraph.undefinedAtom();
+
 // { $type: "ref", value: ["todos", 0, "name"] }
 var ref = jsonGraph.ref(["todos", 0, "name"]);
 
