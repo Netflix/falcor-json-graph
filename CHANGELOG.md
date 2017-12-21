@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.1"></a>
+## [2.1.1](https://github.com/Netflix/falcor-json-graph/compare/v2.1.0...v2.1.1) (2017-12-21)
+
+
+### Bug Fixes
+
+* JsonMap and JsonGraph types should not assume values are present. ([2bade2d](https://github.com/Netflix/falcor-json-graph/commit/2bade2d))
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/Netflix/falcor-json-graph/compare/v2.0.0...v2.1.0) (2017-12-12)
 
