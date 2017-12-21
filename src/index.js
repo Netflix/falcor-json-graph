@@ -2,7 +2,7 @@
 "use strict";
 export type Primitive = string | number | boolean | null;
 export type JsonValue = Primitive | JsonMap | JsonValue[];
-export type JsonMap = { [key: string]: JsonValue };
+export type JsonMap = { [key: string]: JsonValue | void };
 
 export type Key = Primitive;
 export type KeyRangeTo = { from?: number, to: number };
@@ -12,7 +12,7 @@ export type Path = Key[];
 export type KeySet = Key | KeyRange | Array<Key | KeyRange>;
 export type PathSet = KeySet[];
 
-export type JsonGraph = { [key: string]: JsonGraphNode, $type?: empty };
+export type JsonGraph = { [key: string]: JsonGraphNode | void, $type?: empty };
 export type JsonGraphNode = JsonGraph | JsonGraphLeaf;
 export type JsonGraphLeaf =
   | JsonGraphAtom
