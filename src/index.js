@@ -100,50 +100,30 @@ export interface IDataSource {
   ): IObservable<JsonGraphEnvelope>;
 }
 
-declare function atom<T: JsonValue>(
-  value: T,
-  props?: JsonGraphMetadata
-): JsonGraphAtomDefined<T>;
+const {
+  ref,
+  atom,
+  undefinedAtom,
+  error,
+  pathValue,
+  pathInvalidation
+} = require("./factories");
 
-declare function atom(
-  value?: void,
-  props?: JsonGraphMetadata
-): JsonGraphAtomUndefined;
-
-function atom(value, props) {
-  const result =
-    typeof value === "undefined"
-      ? { $type: "atom" }
-      : { $type: "atom", value: value };
-  return props ? Object.assign({}, props, result) : result;
-}
-
-function undefinedAtom(): JsonGraphAtomUndefined {
-  return { $type: "atom" };
-}
+const {
+  mergeJsonGraph,
+  mergeJsonGraphEnvelope,
+  mergeJsonGraphNode
+} = require("./merge");
 
 module.exports = {
-  ref: function ref(path: Path, props?: JsonGraphMetadata): JsonGraphRef {
-    const result = { $type: "ref", value: path };
-    return props ? Object.assign({}, props, result) : result;
-  },
-  atom: atom,
-  undefinedAtom: undefinedAtom,
+  ref,
+  atom,
+  undefinedAtom,
   undefined: undefinedAtom,
-  error: function error(
-    errorValue: string,
-    props?: JsonGraphMetadata
-  ): JsonGraphError {
-    const result = { $type: "error", value: errorValue };
-    return props ? Object.assign({}, props, result) : result;
-  },
-  pathValue: function pathValue(
-    path: PathSet,
-    value: JsonGraphLeaf
-  ): PathValue {
-    return { path: path, value: value };
-  },
-  pathInvalidation: function pathInvalidation(path: PathSet): PathInvalidation {
-    return { path: path, invalidated: true };
-  }
+  error,
+  pathValue,
+  pathInvalidation,
+  mergeJsonGraph,
+  mergeJsonGraphEnvelope,
+  mergeJsonGraphNode
 };
