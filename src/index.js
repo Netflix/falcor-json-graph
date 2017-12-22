@@ -72,7 +72,7 @@ export type PathInvalidation = {
 
 export interface IDisposable {
   dispose(): void;
-  isDisposed: boolean;
+  +isDisposed: boolean;
 }
 
 export type PartialObserver<T> = {
