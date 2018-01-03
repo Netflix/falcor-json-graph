@@ -12,7 +12,7 @@ export type Path = Key[];
 export type KeySet = Key | KeyRange | Array<Key | KeyRange>;
 export type PathSet = KeySet[];
 
-export type JsonGraph = { [key: string]: JsonGraphNode | void, $type?: empty };
+export type JsonGraph = { [key: string]: JsonGraphNode | void, +$type?: empty };
 export type JsonGraphNode = JsonGraph | JsonGraphLeaf;
 export type JsonGraphLeaf =
   | JsonGraphAtom
@@ -20,33 +20,34 @@ export type JsonGraphLeaf =
   | JsonGraphRef
   | Primitive;
 
-export type JsonGraphAtomDefined<T: JsonValue> = JsonGraphMetadata & {
-  $type: "atom",
-  value: T
+export type JsonGraphAtomDefined<T: ?JsonValue> = JsonGraphMetadata & {
+  +$type: "atom",
+  +value: T
 };
 
 export type JsonGraphAtomUndefined = JsonGraphMetadata & {
-  $type: "atom",
-  value?: empty
+  +$type: "atom",
+  +value?: void
 };
 
-export type JsonGraphAtom =
-  | JsonGraphAtomDefined<JsonValue>
-  | JsonGraphAtomUndefined;
+export type JsonGraphAtom = JsonGraphMetadata & {
+  +$type: "atom",
+  +value?: ?JsonValue
+};
 
 export type JsonGraphError = JsonGraphMetadata & {
-  $type: "error",
-  value: JsonValue
+  +$type: "error",
+  +value: JsonValue
 };
 export type JsonGraphRef = JsonGraphMetadata & {
-  $type: "ref",
-  value: Path
+  +$type: "ref",
+  +value: Path
 };
 
 export type JsonGraphMetadata = {
-  $expires?: number,
-  $size?: number,
-  $timestamp?: number
+  +$expires?: number,
+  +$size?: number,
+  +$timestamp?: number
 };
 
 export type JsonGraphEnvelope = {
