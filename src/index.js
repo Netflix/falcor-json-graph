@@ -121,7 +121,7 @@ const {
   isAtomOrPrimitive,
   isRef,
   isError,
-  toJSONValue
+  leafValue
 } = require("./predicates");
 
 module.exports = {
@@ -139,5 +139,5 @@ module.exports = {
   isAtomOrPrimitive,
   isRef,
   isError,
-  toJSONValue
+  leafValue
 };

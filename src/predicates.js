@@ -1,6 +1,8 @@
+//@flow
+
 "use strict";
 
-function isAtomOrError(value) {
+function isAtomOrError(value: any): boolean {
   if (value === null || typeof value !== "object") {
     return true;
   }
@@ -8,7 +10,7 @@ function isAtomOrError(value) {
   return value.$type === "atom" || value.$type === "error";
 }
 
-function isError(value) {
+function isError(value: any): boolean {
   if (value === null || typeof value !== "object") {
     return false;
   }
@@ -16,7 +18,7 @@ function isError(value) {
   return value.$type === "error";
 }
 
-function isRef(value) {
+function isRef(value: any): boolean {
   if (value === null || typeof value !== "object") {
     return false;
   }
@@ -24,7 +26,7 @@ function isRef(value) {
   return value.$type === "ref";
 }
 
-function isAtomOrPrimitive(value) {
+function isAtomOrPrimitive(value: any): boolean {
   if (value === null || typeof value !== "object") {
     return true;
   }
@@ -32,16 +34,14 @@ function isAtomOrPrimitive(value) {
   return value.$type === "atom";
 }
 
-function toJSONValue(jsonGraphValue) {
+function leafValue(jsonGraphValue: any): boolean {
   if (jsonGraphValue === null || typeof jsonGraphValue !== "object") {
     return jsonGraphValue;
   } else if (jsonGraphValue.$type === "atom") {
     return jsonGraphValue.value;
   }
 
-  throw new Error(
-    "Invalid attempt to convert to JSON value which is neither a primitive or an atom of primitive value to a primitive"
-  );
+  throw new Error("Invalid attempt to retrieve non-leaf value");
 }
 
 module.exports = {
@@ -49,5 +49,5 @@ module.exports = {
   isAtomOrPrimitive,
   isRef,
   isError,
-  toJSONValue
+  leafValue
 };
