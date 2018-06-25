@@ -24,4 +24,22 @@ var pathValue = jsonGraph.pathValue(["user", "age"], 25);
 
 // { path: [ 'user', 'age' ], invalidated: true }
 var pathValue = jsonGraph.pathInvalidation(["user", "age"])
+
+// true
+var value = jsonGraph.isAtomOrError(jsonGraph.atom("test"));
+
+// true
+var value = jsonGraph.isAtomOrError(jsonGraph.error("test"));
+
+// true
+var value = jsonGraph.isError(jsonGraph.error("failure"));
+
+// true
+var value = jsonGraph.isRef(jsonGraph.ref(["videos", 123]));
+
+// "hello"
+var value = jsonGraph.leafValue(jsonGraph.atom("hello"));
+
+// "hello"
+var value = jsonGraph.leafValue("hello");
 ```
