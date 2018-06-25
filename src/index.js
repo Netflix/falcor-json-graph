@@ -116,6 +116,14 @@ const {
   mergeJsonGraphNode
 } = require("./merge");
 
+const {
+  isAtomOrError,
+  isAtomOrPrimitive,
+  isRef,
+  isError,
+  toJSONValue
+} = require("./predicates");
+
 module.exports = {
   ref,
   atom,
@@ -126,5 +134,10 @@ module.exports = {
   pathInvalidation,
   mergeJsonGraph,
   mergeJsonGraphEnvelope,
-  mergeJsonGraphNode
+  mergeJsonGraphNode,
+  isAtomOrError,
+  isAtomOrPrimitive,
+  isRef,
+  isError,
+  toJSONValue
 };
