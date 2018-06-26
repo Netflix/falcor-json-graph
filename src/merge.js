@@ -16,18 +16,21 @@ function mergeJsonGraphNode(
 }
 
 function mergeJsonGraph(left: JsonGraph, right: JsonGraph): JsonGraph {
+  if (left === right) {
+    return right;
+  }
   const acc: JsonGraph = Object.assign({}, left);
   for (const key in right) {
     if (Object.prototype.hasOwnProperty.call(right, key)) {
-      const leftValue = acc[key];
       const rightValue = right[key];
       if (typeof rightValue !== "undefined") {
-        acc[key] =
-          typeof leftValue !== "undefined"
-            ? mergeJsonGraphNode(leftValue, rightValue)
-            : rightValue;
-      } else if (typeof leftValue !== "undefined") {
-        acc[key] = leftValue;
+        const leftValue = acc[key];
+        if (leftValue !== rightValue) {
+          acc[key] =
+            typeof leftValue !== "undefined"
+              ? mergeJsonGraphNode(leftValue, rightValue)
+              : rightValue;
+        }
       }
     }
   }
@@ -39,10 +42,11 @@ function mergeJsonGraphEnvelope(
   right: JsonGraphEnvelope
 ): JsonGraphEnvelope {
   if (
-    left.paths &&
-    left.paths.length === 0 &&
-    !left.invalidated &&
-    !left.context
+    left === right ||
+    (left.paths &&
+      left.paths.length === 0 &&
+      !left.invalidated &&
+      !left.context)
   ) {
     return right;
   }
