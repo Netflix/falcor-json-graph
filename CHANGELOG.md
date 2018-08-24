@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.2"></a>
+## [2.2.2](https://github.com/Netflix/falcor-json-graph/compare/v2.2.1...v2.2.2) (2018-08-24)
+
+
+### Bug Fixes
+
+* **flow:** make key range types discriminable. ([c7924c8](https://github.com/Netflix/falcor-json-graph/commit/c7924c8))
+
+
+
 <a name="2.2.1"></a>
 ## [2.2.1](https://github.com/Netflix/falcor-json-graph/compare/v2.2.0...v2.2.1) (2018-01-03)
 
