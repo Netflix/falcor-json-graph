@@ -5,8 +5,8 @@ export type JsonValue = Primitive | JsonMap | JsonValue[];
 export type JsonMap = { [key: string]: JsonValue | void };
 
 export type Key = Primitive;
-export type KeyRangeTo = { from?: number, to: number };
-export type KeyRangeLength = { from?: number, length: number };
+export type KeyRangeTo = { from?: number, to: number, +length?: empty };
+export type KeyRangeLength = { from?: number, length: number, +to?: empty };
 export type KeyRange = KeyRangeTo | KeyRangeLength;
 export type Path = Key[];
 export type KeySet = Key | KeyRange | Array<Key | KeyRange>;
