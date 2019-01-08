@@ -1,3 +1,19 @@
+<a name="3.0.0"></a>
+## 3.0.0 (2019-01-08)
+
+
+#### Bug Fixes
+
+* **merge:** merge paths even if one side is missing (#14) BREAKING CHANGE: paths will be pre ([794b0baf](https://github.com/Netflix/falcor-json-graph.git/commit/794b0baf))
+
+
+#### Breaking Changes
+
+* paths will be present if any of the sides have paths in the envelope, earlier it was skipped if any of them were missing
+
+ ([794b0baf](https://github.com/Netflix/falcor-json-graph.git/commit/794b0baf))
+
+
 # Change Log
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
