@@ -27,16 +27,16 @@ describe("mergeJsonGraphEnvelope", function() {
 
   it("merges jsonGraph paths", function() {
     const left = {
-      paths: ['foo'],
+      paths: [['foo']],
     };
     const right = {
-      paths: ['bar'],
+      paths: [['bar']],
       jsonGraph: {
         bar: 2
       }
     };
     const expected = {
-      paths: ['foo', 'bar'],
+      paths: [['foo'], ['bar']],
       jsonGraph: {
         bar: 2
       }
@@ -48,13 +48,13 @@ describe("mergeJsonGraphEnvelope", function() {
   it("merges with missing left jsonGraph paths", function() {
     const left = {};
     const right = {
-      paths: ['bar'],
+      paths: [['bar']],
       jsonGraph: {
         bar: 2
       }
     };
     const expected = {
-      paths: ['bar'],
+      paths: [['bar']],
       jsonGraph: {
         bar: 2
       }
@@ -65,7 +65,7 @@ describe("mergeJsonGraphEnvelope", function() {
 
   it("merges with missing right jsonGraph paths", function() {
     const left = {
-      paths: ['bar'],
+      paths: [['bar']],
     };
     const right = {
       jsonGraph: {
@@ -73,7 +73,7 @@ describe("mergeJsonGraphEnvelope", function() {
       }
     };
     const expected = {
-      paths: ['bar'],
+      paths: [['bar']],
       jsonGraph: {
         bar: 2
       }
