@@ -60,7 +60,13 @@ function mergeJsonGraphEnvelope(
   const rightPaths = right.paths || [];
 
   if (Array.isArray(left.paths) || Array.isArray(right.paths)) {
-    result.paths = leftPaths.concat(rightPaths);
+    if (leftPaths.length && !rightPaths.length) {
+      result.paths = leftPaths;
+    } else if (!leftPaths.length && rightPaths.length) {
+      result.paths = rightPaths;
+    } else {
+      result.paths = leftPaths.concat(rightPaths);
+    }
   }
   if (right.invalidated) {
     result.invalidated = left.invalidated
