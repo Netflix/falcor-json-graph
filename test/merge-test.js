@@ -25,6 +25,63 @@ describe("mergeJsonGraphEnvelope", function() {
     expect(result).to.deep.equal(expected);
   });
 
+  it("merges jsonGraph paths", function() {
+    const left = {
+      paths: ['foo'],
+    };
+    const right = {
+      paths: ['bar'],
+      jsonGraph: {
+        bar: 2
+      }
+    };
+    const expected = {
+      paths: ['foo', 'bar'],
+      jsonGraph: {
+        bar: 2
+      }
+    };
+    const result = mergeJsonGraphEnvelope((left: any), right);
+    expect(result).to.deep.equal(expected);
+  });
+
+  it("merges with missing left jsonGraph paths", function() {
+    const left = {};
+    const right = {
+      paths: ['bar'],
+      jsonGraph: {
+        bar: 2
+      }
+    };
+    const expected = {
+      paths: ['bar'],
+      jsonGraph: {
+        bar: 2
+      }
+    };
+    const result = mergeJsonGraphEnvelope((left: any), right);
+    expect(result).to.deep.equal(expected);
+  });
+
+  it("merges with missing right jsonGraph paths", function() {
+    const left = {
+      paths: ['bar'],
+    };
+    const right = {
+      jsonGraph: {
+        bar: 2
+      }
+    };
+    const expected = {
+      paths: ['bar'],
+      jsonGraph: {
+        bar: 2
+      }
+    };
+    const result = mergeJsonGraphEnvelope((left: any), right);
+    expect(result).to.deep.equal(expected);
+  });
+
   it("ignores missing left jsonGraph", function() {
     const left = {};
     const right = {
