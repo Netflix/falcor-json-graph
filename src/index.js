@@ -51,6 +51,7 @@ export type JsonGraphMetadata = {
 };
 
 export type JsonGraphEnvelope = {
+    errors?: Error[],
     jsonGraph: JsonGraph,
     paths?: PathSet[],
     invalidated?: PathSet[],
