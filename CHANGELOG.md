@@ -1,3 +1,12 @@
+<a name="3.1.0"></a>
+## 3.1.0 (2019-01-14)
+
+
+#### Features
+
+* **merge:** add errors merge (#15) ([979ba92f](https://github.com/Netflix/falcor-json-graph.git/commit/979ba92f))
+
+
 <a name="3.0.0"></a>
 ## 3.0.0 (2019-01-08)
 
