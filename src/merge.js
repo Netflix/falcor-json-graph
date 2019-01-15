@@ -56,18 +56,9 @@ function mergeJsonGraphEnvelope(
             : left.jsonGraph
     };
 
-    const leftPaths = left.paths || [];
-    const rightPaths = right.paths || [];
+    tentativeMerge(result, left, right, 'paths');
+    tentativeMerge(result, left, right, 'errors');
 
-    if (Array.isArray(left.paths) || Array.isArray(right.paths)) {
-        if (leftPaths.length && !rightPaths.length) {
-            result.paths = leftPaths;
-        } else if (!leftPaths.length && rightPaths.length) {
-            result.paths = rightPaths;
-        } else {
-            result.paths = leftPaths.concat(rightPaths);
-        }
-    }
     if (right.invalidated) {
         result.invalidated = left.invalidated
             ? left.invalidated.concat(right.invalidated)
@@ -83,6 +74,28 @@ function mergeJsonGraphEnvelope(
         result.context = left.context;
     }
     return result;
+}
+
+// Only add properties to JSONGraph if they have any value
+// it is needed for feature parity with older versions
+function tentativeMerge(
+    result: JsonGraphEnvelope,
+    left: JsonGraphEnvelope,
+    right: JsonGraphEnvelope,
+    property: string
+): void {
+    const leftValues = left[property] || [];
+    const rightValues = right[property] || [];
+
+    if (Array.isArray(left[property]) || Array.isArray(right[property])) {
+        if (leftValues.length && !rightValues.length) {
+            result[property] = leftValues;
+        } else if (!leftValues.length && rightValues.length) {
+            result[property] = rightValues;
+        } else {
+            result[property] = leftValues.concat(rightValues);
+        }
+    }
 }
 
 module.exports = { mergeJsonGraph, mergeJsonGraphEnvelope, mergeJsonGraphNode };

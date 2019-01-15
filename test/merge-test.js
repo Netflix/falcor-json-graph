@@ -82,6 +82,28 @@ describe('mergeJsonGraphEnvelope', function() {
         expect(result).to.deep.equal(expected);
     });
 
+    it('merges jsonGraph errors', function() {
+        const err1 = new Error('My Error 1');
+        const err2 = new Error('My Error 2');
+        const left = {
+            errors: [err1]
+        };
+        const right = {
+            errors: [err2],
+            jsonGraph: {
+                bar: 2
+            }
+        };
+        const expected = {
+            errors: [err1, err2],
+            jsonGraph: {
+                bar: 2
+            }
+        };
+        const result = mergeJsonGraphEnvelope((left: any), right);
+        expect(result).to.deep.equal(expected);
+    });
+
     it('ignores missing left jsonGraph', function() {
         const left = {};
         const right = {
