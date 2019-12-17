@@ -72,36 +72,6 @@ export type PathInvalidation = {
   jsonGraph?: empty
 };
 
-export interface IDisposable {
-  dispose(): void;
-  +isDisposed: boolean;
-}
-
-export type PartialObserver<T> = {
-  +onNext?: (value: T) => void,
-  +onError?: (error: Error) => void,
-  +onCompleted?: () => void
-};
-
-export interface IObservable<T> {
-  subscribe(
-    onNext: ?PartialObserver<T> | ((value: T) => void),
-    onError: ?(error: Error) => void,
-    onCompleted: ?() => void
-  ): IDisposable;
-}
-
-export interface IDataSource {
-  get(paths: PathSet[]): IObservable<JsonGraphEnvelope>;
-  set(jsonGraphEnvelope: JsonGraphEnvelope): IObservable<JsonGraphEnvelope>;
-  call(
-    functionPath: Path,
-    args?: JsonGraphNode[],
-    refSuffixes?: PathSet[],
-    thisPaths?: PathSet[]
-  ): IObservable<JsonGraphEnvelope>;
-}
-
 const {
   ref,
   atom,
