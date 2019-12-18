@@ -2,7 +2,8 @@
   "name": "falcor-json-graph",
   "version": "3.1.0",
   "description": "A set of factory functions for creating JSON Graph values.",
-  "main": "lib/index.js",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
   "scripts": {
     "flow": "flow",
     "flow-coverage": "flow-coverage-report",
@@ -32,14 +33,14 @@
   "dependencies": {},
   "devDependencies": {
     "@lrowe/eslint-plugin-flow-remove-types": "^0.0.1",
-    "chai": "^4.1.2",
-    "eslint": "^4.12.1",
+    "chai": "^4.2.0",
+    "eslint": "^4.19.1",
     "flow-bin": "^0.62.0",
-    "flow-coverage-report": "^0.4.0",
+    "flow-coverage-report": "^0.4.1",
     "flow-remove-types": "^1.2.3",
-    "mocha": "^4.0.1",
-    "prettier": "^1.9.1",
-    "standard-version": "^4.2.0"
+    "mocha": "^4.1.0",
+    "prettier": "^1.19.1",
+    "standard-version": "^7.1.0"
   },
   "flow-coverage-report": {
     "includeGlob": [
