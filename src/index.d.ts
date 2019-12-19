@@ -58,8 +58,8 @@ export type PathInvalidation = {
 };
 
 export function ref(path: Path, props?: JsonGraphMetadata): JsonGraphRef;
-export function atom<T extends JsonValue | void>(value: T, props?: JsonGraphMetadata): JsonGraphAtom;
-export function undefinedAtom(): { $type: 'atom' };
+export function atom(value?: JsonValue, props?: JsonGraphMetadata): JsonGraphAtom;
+export function undefinedAtom(): JsonGraphAtom;
 export function error(errorValue: string, props?: JsonGraphMetadata): JsonGraphError;
 export function pathValue(path: PathSet, value: JsonGraphLeaf): PathValue;
 export function pathInvalidation(path: PathSet): PathInvalidation;
